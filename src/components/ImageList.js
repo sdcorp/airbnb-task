@@ -22,9 +22,7 @@ export default class ImageList extends Component {
     console.log('Play');
   };
 
-  reset = e => {
-    console.log(e.target);
-
+  reset = () => {
     //  Stop sliding
     this.slider.slickPause();
     //  Reset to start slide
@@ -35,7 +33,7 @@ export default class ImageList extends Component {
   render() {
     const { images } = this.props;
     return (
-      <ImageWrapper onMouseEnter={this.play} onMouseLeave={e => this.reset(e)}>
+      <ImageWrapper onMouseEnter={this.play} onMouseLeave={this.reset}>
         <Slider ref={slider => (this.slider = slider)} {...settings}>
           {images.map((img, index) => {
             return (
